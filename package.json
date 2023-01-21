@@ -4,11 +4,16 @@
   "description": "social media app",
   "main": "main.js",
   "scripts": {
+    "start":"nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "keywords": [
     "Social"
   ],
   "author": "Honeshwar",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
