@@ -2,6 +2,15 @@ const express = require('express');//framework import(internally node.js use)
 const app = express();//call func an express server create
 const port = 8000;
 
+//sass use
+const sassMW = require('node-sass-middleware');
+app.use(sassMW({
+    src:'./assets/scss',
+    dest:'./assets/css',
+    debug:true,
+    prefix:'/css',
+    
+}));
 
 //set up ejs
 app.set('view engine','ejs');//tell app to use ejs as view engine
