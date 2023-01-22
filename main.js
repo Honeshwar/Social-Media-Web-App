@@ -3,6 +3,8 @@ const express = require('express');//framework import(internally node.js use)
 const app = express();//call func an express server create
 const port = 8000;
 const db = require('./config/database_connection');
+//help to parser / to encode come request and create an body in req that contain payload,req not automatically structured(JUST KEU:VALUE),library json parser body parser , inbuilt in express that we use
+app.use(express.urlencoded({extended:false}));
 // sass use
 // const sassMW = require('node-sass-middleware');
 // app.use(sassMW({
@@ -12,6 +14,7 @@ const db = require('./config/database_connection');
 //     prefix:'/css',
     
 // }));
+
 console.log(express.static('./assets'));
 app.use(express.static('./assets'));
 

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');//server connect to mongodb ,(odm)
 
+mongoose.set('strictQuery', true);
 mongoose.connect("mongodb://127.0.0.1/SOCIAL_DEVELOPMENT");
 
 const db = mongoose.connection;
