@@ -16,6 +16,9 @@
       (3) ejs file>
 6) <create an page for sign Up ,for that we do create router,controller and an ejs file>
    <style sign Up page , header(nav bar) and footer by using sass Middleware >
-7) <create an page for sign In ,for that we do create router,controller and an ejs file>
+
 8) <create an page for Home ,for that we do create router,controller and an ejs file>
 9) <create an page for Profile ,for that we do create router,controller and an ejs file>
+
+
+7) <create an page for sign In ,for that we do create router,controller and an ejs file>
