@@ -22,3 +22,5 @@
 
 
 7) <create an page for sign In ,for that we do create router,controller and an ejs file>
+
+8) <for signUp user, db create to store data,schema(structure of data,how it look in db) than model , router and action to get that data,redirect to signIn>

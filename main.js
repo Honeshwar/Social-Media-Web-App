@@ -2,7 +2,7 @@
 const express = require('express');//framework import(internally node.js use)
 const app = express();//call func an express server create
 const port = 8000;
-
+const db = require('./config/database_connection');
 // sass use
 // const sassMW = require('node-sass-middleware');
 // app.use(sassMW({
