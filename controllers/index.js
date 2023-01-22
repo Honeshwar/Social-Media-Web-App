@@ -10,12 +10,12 @@ module.exports.signIn = (req,res)=>{
 }
 
 module.exports.create_account = async (req,res)=>{
-    console.log(req.body);
+    // console.log(req.body);
    try {
         const user = await Users.findOne({email:req.body.email});
 
          if(!user){//we have to create an document in Users model for this user in mongodb
-            if(req.body.password == req.body["confirm-password"]){
+            if(req.body.password == req.body["confirm-password"]){//valid(follow variable rules) variable work with dot notation work on
 
                 await  Users.create({
                     email:req.body.email,
@@ -32,4 +32,24 @@ module.exports.create_account = async (req,res)=>{
    } catch (error) {
     console.log(error,'while creating user account');
    }
+}
+
+//create session or create login time
+module.exports.create_account = async (req,res)=>{
+    console.log(req.body);
+    try {
+         const user = await Users.findOne({email:req.body.email});
+ 
+          if(user){//we have to create an document in Users model for this user in mongodb
+             if(req.body.password == user.password){
+                 return res.redirect('/home');
+             }else{
+              return res.redirect('/signin');              
+             }
+          }
+          return res.redirect('/signup');
+ 
+    } catch (error) {
+     console.log(error,' error while sign in user ');
+    }
 }
