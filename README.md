@@ -26,3 +26,5 @@
 8) <for signUp user, db create to store data,schema(structure of data,how it look in db) than model , router and action to get that data,redirect to signIn>
 
 9) <for signIn user, router and action to verify login time user enter data from our db,redirect to home where post(img,video),chat engine,connection(friends)>
+
+<use flash mesages and noty for animation message in client side>
