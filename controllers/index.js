@@ -35,21 +35,9 @@ module.exports.create_account = async (req,res)=>{
 }
 
 //create session or create login time
-module.exports.create_account = async (req,res)=>{
-    console.log(req.body);
-    try {
-         const user = await Users.findOne({email:req.body.email});
- 
-          if(user){//we have to create an document in Users model for this user in mongodb
-             if(req.body.password == user.password){
-                 return res.redirect('/home');
-             }else{
-              return res.redirect('/signin');              
-             }
-          }
-          return res.redirect('/signup');
- 
-    } catch (error) {
-     console.log(error,' error while sign in user ');
-    }
+module.exports.create_session = async (req,res)=>{
+  if(req.isAuthenticated()){
+    return res.redirect('/home');
+  }
+  return res.redirect('back');
 }
