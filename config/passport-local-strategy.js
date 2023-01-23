@@ -11,7 +11,7 @@ passport.use(new LocalStrategy(
         passReqToCallback:true
     },
     function(req,email,password,done)//func pass as arg use as cb by LocalStrategy//done callback function
-    {
+    {console.log('local**',req);
         //find user  in db and than match password from db
         Users.findOne({email:email},function(err,user){
             if(err){
@@ -34,6 +34,7 @@ passport.use(new LocalStrategy(
 
 //set cookie , give  login  access to user
 passport.serializeUser(function(user,done){
+    console.log("serialize User***",user);
      done(null,user.id);// value for cookie in done arg.
     //  return done
 });
@@ -50,7 +51,7 @@ passport.deserializeUser(function(id,done){
             // console.log("error in passport will find user");
             return done(err);
         }
-
+        console.log("deserializer User***",user);
         return done(null,user);
     })
 })

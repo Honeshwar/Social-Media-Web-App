@@ -1,6 +1,6 @@
 nav{
     width:100%;
-    height:6%;
+    height:7%;
     display: flex;
     /* border:solid; */
     justify-content: space-between;
@@ -13,18 +13,46 @@ nav h2{
     
 }
 #link-to-other-pages{
-    display: flex;
-    /* border:solid; */
-    width:20%;
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
+   width:60%;
+   height: 100%;
+   /* border:solid; */
+   display: flex;
+  flex-direction: row-reverse;
 }
-#link-to-other-pages li{
+#link-to-other-pages li {
     list-style: none;
-   
 }
 #link-to-other-pages li a{
     text-decoration: none;
     color: white;
     font-size: large;
+}
+
+#after-auth{
+    width:70%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    /* border:solid; */
+   
+  ;
+}
+
+#before-auth{
+    width:50%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    /* border:solid; */
+   
+  
+}
+
+@media only screen and (min-width:1000px) {
+#before-auth{
+    width:20%;
+}
+#after-auth{
+    width:30%;
+}
 }

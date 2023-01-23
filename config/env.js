@@ -1,15 +1,15 @@
 const fs = require('fs');
 const path = require('path');//morgan only as mw fun work and stored/fill log from req to this files, for that we wrote code main js file
-const rts = require('rotating-file-stream');//create log file,when full an file create new file transfer in it logs and again fill that current file , delete file if grew too much(we have to set constraints)
-//get path of directory where logs stores
-const logDirectory = path.join(__dirname,'../production_logs');
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);//check if directory not exist  that create new directory
+// const rts = require('rotating-file-stream');//create log file,when full an file create new file transfer in it logs and again fill that current file , delete file if grew too much(we have to set constraints)
+// //get path of directory where logs stores
+// const logDirectory = path.join(__dirname,'../production_logs');
+// fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);//check if directory not exist  that create new directory
 
-//user access our website
-const accessLogStream = rfs('access.log',{//access.log=name of file in which logs get stored
-    interval:'1d',//one day
-    path:logDirectory
-});
+// //user access our website
+// const accessLogStream = rfs('access.log',{//access.log=name of file in which logs get stored
+//     interval:'1d',//one day
+//     path:logDirectory
+// });
 
 let development = {
 //index.js (main)
@@ -21,7 +21,13 @@ let development = {
 //passport google
     google_client_id:"850782517174-40ebe3hmcpkcgb1d7komn7hfo67ho2r4.apps.googleusercontent.com",
     google_client_secret:"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",
-    google_call_back_url:"http://localhost:8000/user/auth/google/callback",
+    google_call_back_url:"http://localhost:8000/auth/google/callback",
+
+// passport github
+    github_client_id:"7e2d7761c00e7655b1bb",
+    github_client_secret:"1452405d7d3da67a2dc3f7b2962b6d84727f3d80",
+    github_call_back_url:"http://localhost:8000/auth/github/callback",
+
 //smtp obj in nodemailer
     smtp:{
         service:"gmail",
@@ -36,10 +42,10 @@ let development = {
     },
 //mongoose
     db:'CODE_SOCIAL_DEVELOPMENT',
-    morgan:{
-        mode:'dev',
-        options:{stream:accessLogStream}
-    }
+    // morgan:{
+    //     mode:'dev',
+    //     options:{stream:accessLogStream}
+    // }
 
 }
 
@@ -63,10 +69,10 @@ let production = {
 
         }
     },
-    morgan:{
-        mode:'combine',
-        options:{stream:accessLogStream}
-    }
+    // morgan:{
+    //     mode:'combine',
+    //     options:{stream:accessLogStream}
+    // }
    
 }
 console.log(process.env.CODIAL_ENVIRONMENT ,process.env.CODIAL_JWT_SECRET,process.env.CODIAL_ASSETS_PATH,9 );

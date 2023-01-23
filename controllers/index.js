@@ -1,11 +1,22 @@
 
 const Users = require('../models/users');
 
+module.exports.home= (req,res)=>{
+    return res.render('home.ejs',{title:"Home"});
+}
+
 module.exports.signUp = (req,res)=>{
+     if(req.isAuthenticated()){
+    return res.redirect('/');
+  }
     return res.render('signUp',{title:'Sign Up'})
 }
 
 module.exports.signIn = (req,res)=>{
+    //if user is authenticated than user will not access signup/signin page
+    if(req.isAuthenticated()){
+        return res.redirect('/');
+      }
     return res.render('signIn',{title:'Sign In'})
 }
 
@@ -34,10 +45,19 @@ module.exports.create_account = async (req,res)=>{
    }
 }
 
-//create session or create login time
-module.exports.create_session = async (req,res)=>{
-  if(req.isAuthenticated()){
-    return res.redirect('/home');
-  }
-  return res.redirect('back');
+// //create session or create login time
+// module.exports.create_session_by_local_auth = async (req,res)=>{
+//   if(req.isAuthenticated()){
+//     return res.redirect('/home');
+//   }
+//   return res.redirect('back');
+// }
+
+
+
+module.exports.go_to_home = async (req,res)=>{
+ 
+    return res.redirect('/');
+  
+
 }

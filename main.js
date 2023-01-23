@@ -51,7 +51,10 @@ app.use(session({
 //------------
 
 //------------MW call by express set user to locals use in ejs files
+//initialize (interpret) when app run
 const passport = require('./config/passport-local-strategy');
+ require('./config/password-google-oauth2-strategy');
+ require('./config/password-github2-strategy')
 // add MW for Passport 
 app.use(passport.initialize()); 
 app.use(passport.session());
